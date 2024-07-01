@@ -20,13 +20,15 @@ def sauvegarderLivres(livres):
     with open(FICHIER_JSON, 'w', encoding='utf-8') as fichier :
         json.dump(livres, fichier, ensure_ascii=False, indent=4)
 
+livres = chargerLivres()
+
 def afficherLivres():
     if livres :
         for livre in livres:
-            print(f"ID: {livre['id']}, Titre: {livre['titre']}, Auteur: {livre["auteur"]}, Genre: {livre['genre']}")
+            print(f"ID: {livre['id']}, Titre: {livre['titre']}, Auteur: {livre['auteur']}, Genre: {livre['genre']}")
     else :
         print("Aucun livre n'est enregistré")
-        
+
 def validerTitre(titre):
     if titre.isdigit():
         print("Écrivez correctement le titre du livre")
@@ -48,8 +50,11 @@ def validerGenre(genre):
     else :
         return True
     
-def livreExiste():
-    pass
+def livreExiste(livres, titre, auteur):
+    for livre in livres:
+        if livre['titre'].lower() == titre.lower() and livre['auteur'].lower() == auteur.lower():
+            return True
+    return False
 
 def ajouterLivre():
 
@@ -69,6 +74,10 @@ def ajouterLivre():
             break
 
     livres, dernier_id = chargerLivres()
+
+    if livreExiste(livres, titreLivre, auteurLivre):
+        print("le livre existe déjà")
+        return
 
     nouveau_id = dernier_id + 1
     livre = {"id": nouveau_id, "titre": titreLivre, "auteur": auteurLivre, "genre": genreLivre}
