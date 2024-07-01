@@ -15,8 +15,7 @@ def main():
     while True :
         choix = menu()
         if choix == 1:
-            pass
-            pass
+            livre.ajouterLivre()
         elif choix == 2:
             pass
         elif choix == 3:
