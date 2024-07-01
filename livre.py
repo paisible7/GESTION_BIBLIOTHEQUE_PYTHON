@@ -21,8 +21,12 @@ def sauvegarderLivres(livres):
         json.dump(livres, fichier, ensure_ascii=False, indent=4)
 
 def afficherLivres():
-    pass
-
+    if livres :
+        for livre in livres:
+            print(f"ID: {livre['id']}, Titre: {livre['titre']}, Auteur: {livre["auteur"]}, Genre: {livre['genre']}")
+    else :
+        print("Aucun livre n'est enregistré")
+        
 def validerTitre(titre):
     if titre.isdigit():
         print("Écrivez correctement le titre du livre")
