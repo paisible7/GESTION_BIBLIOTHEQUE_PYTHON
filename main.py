@@ -17,7 +17,7 @@ def main():
         if choix == 1:
             livre.ajouterLivre()
         elif choix == 2:
-            pass
+            livre.rechercherLivre()
         elif choix == 3:
             pass
         elif choix == 4:
