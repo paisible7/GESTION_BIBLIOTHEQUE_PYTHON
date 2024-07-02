@@ -1,0 +1,9 @@
+[
+    {
+        "id": 1,
+        "titre": "Gestion Bibliothèque",
+        "auteur": "M. Paisible",
+        "genre": "Education",
+        "disponible": true
+    }
+]

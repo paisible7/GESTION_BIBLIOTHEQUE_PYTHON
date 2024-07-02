@@ -29,6 +29,26 @@ def afficherLivres():
     else :
         print("Aucun livre n'est enregistré")
 
+def rechercherLivre():
+    livres, _ = chargerLivres()
+    livres_trouves = []
+
+    criteres = input("entrer le critère de recherche(Titre, Auteur, Genre ou Disponibilité) : ")
+    for livre in livres:
+        if (criteres.lower() in livre['titre'].lower() or
+            criteres.lower() in livre['auteur'].lower() or
+            criteres.lower() in livre['genre'].lower() or
+            criteres.lower() == 'disponible' and livre['disponible'] or
+            criteres.lower() == 'non disponible' and not livre['disponible']):
+            livres_trouves.append(livre)
+
+        if livres_trouves:
+            print("Livres trouvés : ")
+            for livre in livres_trouves:
+                print(f"ID: {livre['id']}, Titre: {livre['titre']}, Auteur: {livre['auteur']}, Genre: {livre['genre']}, Disponible: {'Oui' if livre['disponible'] else 'Non'}")
+        else :
+            print("Aucun livre correspondant aux critères de recherche n'a été trouvé")
+
 def validerTitre(titre):
     if titre.isdigit():
         print("Écrivez correctement le titre du livre")
@@ -58,6 +78,8 @@ def livreExiste(livres, titre, auteur):
 
 def ajouterLivre():
 
+    statusLivre = True
+
     while True:
         titreLivre = input("entrer le titre du livre : ")
         if validerTitre(titreLivre):
@@ -80,7 +102,7 @@ def ajouterLivre():
         return
 
     nouveau_id = dernier_id + 1
-    livre = {"id": nouveau_id, "titre": titreLivre, "auteur": auteurLivre, "genre": genreLivre}
+    livre = {"id": nouveau_id, "titre": titreLivre, "auteur": auteurLivre, "genre": genreLivre, "disponible" : statusLivre}
     livres.append(livre)
     sauvegarderLivres(livres)
     print(livres)
