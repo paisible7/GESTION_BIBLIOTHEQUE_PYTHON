@@ -1,1 +1,9 @@
-[]
+[
+    {
+        "id": 1,
+        "titre": "bibliothèque",
+        "auteur": "codeur",
+        "genre": "programmation",
+        "disponible": true
+    }
+]

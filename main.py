@@ -21,9 +21,9 @@ def main():
         elif choix == 3:
             livre.supprimerLivre()
         elif choix == 4:
-            pass
+            livre.afficherLivres()
         elif choix == 5:
-            pass
+            livre.emprunterLivre()
         elif choix == 6:
             pass
         elif choix == 7:
