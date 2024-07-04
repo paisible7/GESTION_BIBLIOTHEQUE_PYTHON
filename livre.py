@@ -108,4 +108,6 @@ def ajouterLivre():
     print(livres)
     print("Livre ajouté avec succès")
 
-        
+
+def supprimerLivre():
+    pass

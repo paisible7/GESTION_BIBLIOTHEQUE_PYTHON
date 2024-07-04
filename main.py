@@ -19,7 +19,7 @@ def main():
         elif choix == 2:
             livre.rechercherLivre()
         elif choix == 3:
-            pass
+            livre.supprimerLivre()
         elif choix == 4:
             pass
         elif choix == 5:
