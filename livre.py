@@ -164,33 +164,3 @@ def emprunterLivre():
             print(f"le livre avec l'ID {idLivre}a été archivé avec succès")
     else:
         print(f"Aucun livre trouvé avec l'ID {idLivre}")
-
-
-
-# def archiverLivre():
-#     livres, _ = chargerLivres()
-#     if not livres:
-#         print("Aucun livre n'est enregistré")
-#         return
-
-#     try:
-#         idLivre = int(input("Entrez l'ID du livre à archiver : "))
-#     except ValueError:
-#         print("L'ID doit être un nombre entier")
-#         return
-
-#     livre_a_archiver = None
-#     for livre in livres:
-#         if livre['id'] == idLivre:
-#             livre_a_archiver = livre
-#             break
-
-#     if livre_a_archiver:
-#         if not livre_a_archiver['disponible']:
-#             print(f"Le livre avec ID {idLivre} est déjà archivé")
-#         else:
-#             livre_a_archiver['disponible'] = False
-#             sauvegarderLivres(livres)
-#             print(f"Livre avec ID {idLivre} archivé avec succès")
-#     else:
-#         print(f"Aucun livre trouvé avec l'ID {idLivre}")
