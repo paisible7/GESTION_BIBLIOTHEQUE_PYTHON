@@ -110,4 +110,30 @@ def ajouterLivre():
 
 
 def supprimerLivre():
-    pass
+    livres, _ = chargerLivres()
+
+    if not livres:
+        print("Aucun livre n'est enregistré")
+        return
+
+    try:
+        idLivre = int(input("Entrez l'ID du livre à supprimer : "))
+    except ValueError:
+        print("L'ID doit être un nombre entier")
+        return
+
+    livreDel = None
+    for livre in livres:
+        if livre['id'] == idLivre:
+            livreDel = livre
+            break
+
+    if livreDel:
+        livres.remove(livreDel)
+        sauvegarderLivres(livres)
+        print(f"Le livre avec l'ID {idLivre} a été supprimé avec succès")
+    else:
+        print(f"Aucun livre trouvé avec l'ID {idLivre}")
+
+
+
