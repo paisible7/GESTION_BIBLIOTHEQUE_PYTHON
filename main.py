@@ -25,7 +25,7 @@ def main():
         elif choix == 5:
             livre.emprunterLivre()
         elif choix == 6:
-            pass
+            livre.retournerLivre()
         elif choix == 7:
             pass
         else :
@@ -33,5 +33,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
-    
