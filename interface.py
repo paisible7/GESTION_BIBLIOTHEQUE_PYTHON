@@ -234,8 +234,8 @@ class LibraryApp:
 
                 if emprunteur:
                     livreEmprunt['disponible'] = False
-                    date_emprunt = datetime.now().strftime("%d-%m-%Y")
-                    date_retour = simpledialog.askstring("date", "Entrez la date de retour (format JJ-MM-AAAA) : ")
+                    date_emprunt = datetime.now().strftime("%Y-%m-%d")
+                    date_retour = simpledialog.askstring("date", "Entrez la date de retour (format AAAA-MM-JJ) : ")
                     livreEmprunt['emprunt'] = {
                         "date_emprunt": date_emprunt,
                         "date_retour": date_retour,
@@ -272,7 +272,7 @@ class LibraryApp:
                 historique = chargerHistorique()
                 emprunt = next((item for item in historique if item['titre'].lower() == titreLivre.lower() and item['date_retour'] is None), None)
                 if emprunt:
-                    emprunt['date_retour'] = datetime.now().strftime("%d-%m-%Y")
+                    emprunt['date_retour'] = datetime.now().strftime("%Y-%m-%d")
                     
                     sauvegarderHistorique(historique)
                     sauvegarderLivres(livres)
